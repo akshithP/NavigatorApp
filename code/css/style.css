@@ -1,0 +1,20 @@
+/* For all HTML files: */
+html, body { 
+    height: 100vh; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #F7FBFB;
+}
+
+.mdl-layout__header {
+    height: 6vh;
+}
+
+/*Aligning navigation info table in navigate.html*/
+.mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type {
+    padding-left: 12px;
+}
+
+.mdl-data-table td {
+    padding: 8px 12px 8px 12px;
+}

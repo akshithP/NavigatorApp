@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Navigator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="css/style.css" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" sizes="196x196" href="images/icon.png" />
+        <link rel="apple-touch-icon-precomposed" href="images/icon.png" />
+    </head>
+
+    <body>
+
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row" style="padding-left: 16px;">
+
+                    <!-- Back arrow. -->
+                    <button class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" OnClick="window.location.href='index.html'">
+                        <i class="material-icons md-48">chevron_left</i>
+                    </button>
+
+                    <!-- Title. -->
+                    <span class="mdl-layout-title"> &nbsp; Navigate</span>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+
+                    <!-- Content for navigate page. -->
+
+                    <!-- Map and direction arrow. -->
+                    <div class="map-container" style="position: relative; height: 66vh; top 0px;">
+                        <div id="map" class="map" style="height: 69vh;"></div>
+                        <div style="position: absolute; bottom: 0vh; left: 0;">
+                            <img id="direction-arrow" src="images/straight.svg" width="70" height="70" style="background-color: white;">
+                        </div>
+                    </div>
+
+                    <!-- Bottom drawer with route and user info. -->
+                    <table class="mdl-data-table mdl-js-data-table" style="width: 100%; height: 20vh;">
+                        <tbody>
+                            <tr>
+                                <td>Next waypoint: &nbsp;
+                                    <span id="dist-to-waypoint"></span>
+                                <td>Waypoint number: &nbsp;
+                                    <span id ="waypoint-num"></span>
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                            </tr>
+                            <tr>
+                                <td>Dist Travelled: &nbsp;
+                                    <span id ="dist"></span>
+                                </td>
+                                <td>Avg Speed: &nbsp;
+                                    <span id ="speed"></span>
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                            </tr>
+                            <tr>
+                                <td>Dist to end: &nbsp;
+                                    <span id ="dist-remaining"></span>
+                                </td>
+                                <td>Time to end: &nbsp;
+                                    <span id ="eta"></span>
+                                </td> 
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Toast message.-->
+                <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar" id="toast">
+                    <div class="mdl-snackbar__text"></div>
+                    <button type="button" class="mdl-snackbar__action"></button>
+                </div>
+            </main>
+        </div>
+
+        <!--   JavaScript files:   -->
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="js/utility.js"></script>
+        <script src="js/shared.js"></script>
+        <script src="js/navigatePage.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDbYfL2X7XJDuZmc7LPqoEJapni213GmPU&callback=initMap&libraries=geometry"></script>
+    </body>
+</html>
